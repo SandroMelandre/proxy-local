@@ -1,0 +1,29 @@
+{
+  "name": "proxy-local",
+  "version": "0.0.1",
+  "description": "BrowserSync-based Gulpfile",
+  "main": "index.js",
+  "repository": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "proxy",
+    "browsersync",
+    "css"
+  ],
+  "author": "Sandro Rezende>",
+  "license": "",
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "del": "^2.2.2",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-imagemin": "^6.1.1",
+    "gulp-minify": "^3.1.0",
+    "run-sequence": "^1.2.2"
+  }
+}
