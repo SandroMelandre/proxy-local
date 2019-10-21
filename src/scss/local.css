@@ -1,7 +1,7 @@
 /*  local css*/
 
 #menu-main {
-    background-color:  red;
+    background-color:  blue;
   }
   
   .container {
@@ -9,5 +9,10 @@
   }
   
   .img-home {
-      width: 100px;
+      width: 150px;
   }
+  .produto .col-right #product-Name .productName{
+    font-size: 16px;
+    color: white;
+}
+  

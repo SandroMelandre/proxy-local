@@ -1,5 +1,6 @@
 var gulp = require("gulp"),
-	minify = require("gulp-minify"),
+	rename  = require('gulp-rename'),
+	uglify = require('gulp-uglify'),
 	cleanCSS = require('gulp-clean-css'),
 	imagemin = require('gulp-imagemin'),
 	browserSync = require("browser-sync").create(),
@@ -36,6 +37,9 @@ gulp.task("css", function(){
 	return gulp.src(config.srcDir + "/scss/**/*.css")
 	.pipe(cleanCSS({compatibility: 'ie8'}))
 	.pipe(autoprefixer())
+	.pipe(rename({
+		extname:".min.css"
+	}))	
 	.pipe(gulp.dest(config.injectDir + "/css"))
 	.pipe(browserSync.stream());
 
@@ -48,8 +52,11 @@ gulp.task('images', function() {
 });
 
 gulp.task("js", function() {
-	return gulp.src(config.srcDir + "/js/**/*.js")
-		.pipe(minify())
+	return gulp.src(config.srcDir + "/js/**/*.js")	
+		.pipe(uglify())
+		.pipe(rename({
+			extname:".min.js"
+		}))	
 		.pipe(gulp.dest(config.injectDir + "/js"))
 		.pipe(browserSync.stream());
 });
@@ -89,7 +96,7 @@ gulp.task("browserSync", ["css", "js"], function() {
 					});
 
 					for (var file in files) {
-						localJsAssets += "<script src=\"" + config.localPath + "/" + files[file] + "\"></script>";
+						localJsAssets += "<script src=\"" + config.localPath + "/" + files[file] + "\" type='module'></script>";
 					}
 				}
 
